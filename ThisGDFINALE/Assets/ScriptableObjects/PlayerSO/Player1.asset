@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71763b77c4ef4554a9a59e24d73c6a07, type: 3}
+  m_Name: Player1
+  m_EditorClassIdentifier: 
+  PlayerID: Player1
+  TrainCardIcon: {fileID: 21300000, guid: a0b43d7492201e246a7c13314eb74e14, type: 3}
+  TrainCarIcon: {fileID: 21300000, guid: 4d48183bbacf28e4dbc2de5e76c6329d, type: 3}
+  ScoreIcon: {fileID: 21300000, guid: 75eccde38c22838418f4f8902c0bf2b0, type: 3}
+  PlayerTrainCards: 0
+  PlayerTrainCars: 45
+  PlayerScore: 0
