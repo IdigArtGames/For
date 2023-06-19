@@ -29,7 +29,7 @@ public class AllPlayer2Cards : MonoBehaviour
 
     void Update()
     {
-        int Total = boxSlot.amountOfBoxTrain + cabooseSlot.amountOfBoxTrain + freightSlot.amountOfBoxTrain + coalSlot.amountOfBoxTrain + reeferSlot.amountOfBoxTrain + passengerSlot.amountOfBoxTrain + wildCardSlot.amountOfBoxTrain + tankerSlot.amountOfBoxTrain + hopperSlot.amountOfBoxTrain;
+        Total = boxSlot.amountOfBoxTrain + cabooseSlot.amountOfBoxTrain + freightSlot.amountOfBoxTrain + coalSlot.amountOfBoxTrain + reeferSlot.amountOfBoxTrain + passengerSlot.amountOfBoxTrain + wildCardSlot.amountOfBoxTrain + tankerSlot.amountOfBoxTrain + hopperSlot.amountOfBoxTrain;
         totalTxt.text = Total.ToString();
 
         if (Total == 4 && !hasExecuted)

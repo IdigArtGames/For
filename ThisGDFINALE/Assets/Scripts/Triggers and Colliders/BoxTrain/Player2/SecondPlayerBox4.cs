@@ -11,6 +11,7 @@ public class SecondPlayerBox4 : MonoBehaviour
     public BoxSlot boxSlot;
     public WildCardSlot wildCardSlot;
     public TankerTrain6 tankerTrain6;
+    private JustToTest toTest;
 
     //GameObjects
     public GameObject trainOnBoard;
@@ -28,6 +29,7 @@ public class SecondPlayerBox4 : MonoBehaviour
 
     private void Start()
     {
+        toTest = FindObjectOfType<JustToTest>();
         bc = GetComponent<BoxCollider2D>();
     }
 
@@ -90,7 +92,7 @@ public class SecondPlayerBox4 : MonoBehaviour
 
                 //this is the card that we dragged into the trigger
                 Destroy(triggeredObject);
-
+                toTest.Change();
                 trainOnBoard.SetActive(true);
                 bc.gameObject.SetActive(false);
                 //AddPoints

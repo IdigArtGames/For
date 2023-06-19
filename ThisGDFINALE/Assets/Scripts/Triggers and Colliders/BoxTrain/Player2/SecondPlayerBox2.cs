@@ -11,6 +11,7 @@ public class SecondPlayerBox2 : MonoBehaviour
     public BoxSlot boxSlot;
     public WildCardSlot wildCardSlot;
     public ReeferTrain1 reeferTrain1;
+    private JustToTest toTest;
 
     //GameObjects
     public GameObject trainOnBoard;
@@ -27,6 +28,7 @@ public class SecondPlayerBox2 : MonoBehaviour
     private int RequiredTrainCards = 2;
     private void Start()
     {
+        toTest = FindObjectOfType<JustToTest>();
         bc = GetComponent<BoxCollider2D>();
     }
 
@@ -89,7 +91,7 @@ public class SecondPlayerBox2 : MonoBehaviour
 
                 //this is the card that we dragged into the trigger
                 Destroy(triggeredObject);
-
+                toTest.Change();
                 trainOnBoard.SetActive(true);
                 bc.gameObject.SetActive(false);
                 //AddPoints

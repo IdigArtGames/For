@@ -10,6 +10,7 @@ public class ReeferTrain6 : MonoBehaviour
     public PlayerInDetail playerInDetail;
     public ReeferSlot reeferSlot;
     public WildCardSlot wildCardSlot;
+    private JustToTest toTest;
 
     //GameObjects
     public GameObject trainOnBoard;
@@ -28,6 +29,7 @@ public class ReeferTrain6 : MonoBehaviour
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
+        toTest = FindObjectOfType<JustToTest>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,7 +91,7 @@ public class ReeferTrain6 : MonoBehaviour
 
                 //this is the card that we dragged into the trigger
                 Destroy(triggeredObject);
-
+                toTest.Change();
                 trainOnBoard.SetActive(true);
                 bc.gameObject.SetActive(false);
                 //AddPoints

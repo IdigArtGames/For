@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CabooseTrain5 : MonoBehaviour
@@ -11,6 +10,7 @@ public class CabooseTrain5 : MonoBehaviour
     public CabooseSlot cabooseSlot;
     public WildCardSlot wildCardSlot;
     public FreightTrain5 freightTrain5;
+    private JustToTest toTest;
 
     //GameObjects
     public GameObject trainOnBoard;
@@ -28,6 +28,7 @@ public class CabooseTrain5 : MonoBehaviour
 
     private void Start()
     {
+        toTest = FindObjectOfType<JustToTest>();
         bc = GetComponent<BoxCollider2D>();
     }
 
@@ -94,7 +95,7 @@ public class CabooseTrain5 : MonoBehaviour
 
                 //this is the card that we dragged into the trigger
                 Destroy(triggeredObject);
-
+                toTest.Change();
                 trainOnBoard.SetActive(true);
                 bc.gameObject.SetActive(false);
                 //AddPoints

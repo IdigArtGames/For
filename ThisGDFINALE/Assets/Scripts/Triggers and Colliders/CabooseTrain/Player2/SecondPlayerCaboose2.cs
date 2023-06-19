@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SecondPlayerCaboose2 : MonoBehaviour
@@ -10,6 +9,7 @@ public class SecondPlayerCaboose2 : MonoBehaviour
     public PlayerInDetail playerInDetail;
     public CabooseSlot cabooseSlot;
     public WildCardSlot wildCardSlot;
+    private JustToTest toTest;
 
     //GameObjects
     public GameObject trainOnBoard;
@@ -27,6 +27,7 @@ public class SecondPlayerCaboose2 : MonoBehaviour
 
     private void Start()
     {
+        toTest = FindObjectOfType<JustToTest>();
         bc = GetComponent<BoxCollider2D>();
     }
 
@@ -93,7 +94,7 @@ public class SecondPlayerCaboose2 : MonoBehaviour
 
                 //this is the card that we dragged into the trigger
                 Destroy(triggeredObject);
-
+                toTest.Change();
                 trainOnBoard.SetActive(true);
                 bc.gameObject.SetActive(false);
                 //AddPoints

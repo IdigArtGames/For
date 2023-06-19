@@ -11,6 +11,7 @@ public class TankerTrain3 : MonoBehaviour
     public TankerSlot tankerSlot;
     public WildCardSlot wildCardSlot;
     public CoalTrain1 coalTrain1;
+    private JustToTest toTest;
 
     //GameObjects
     public GameObject trainOnBoard;
@@ -29,6 +30,7 @@ public class TankerTrain3 : MonoBehaviour
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
+        toTest = FindObjectOfType<JustToTest>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -90,7 +92,7 @@ public class TankerTrain3 : MonoBehaviour
 
                 //this is the card that we dragged into the trigger
                 Destroy(triggeredObject);
-
+                toTest.Change();
                 trainOnBoard.SetActive(true);
                 bc.gameObject.SetActive(false);
                 //AddPoints

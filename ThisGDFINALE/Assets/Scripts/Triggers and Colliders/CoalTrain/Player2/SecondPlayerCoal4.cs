@@ -11,6 +11,7 @@ public class SecondPlayerCoal4 : MonoBehaviour
     public CoalSlot coalSlot;
     public WildCardSlot wildCardSlot;
     public TankerTrain4 tankerTrain4;
+    private JustToTest toTest;
 
     //GameObjects
     public GameObject trainOnBoard;
@@ -28,6 +29,7 @@ public class SecondPlayerCoal4 : MonoBehaviour
 
     private void Start()
     {
+        toTest = FindObjectOfType<JustToTest>();
         bc = GetComponent<BoxCollider2D>();
     }
 
@@ -90,7 +92,7 @@ public class SecondPlayerCoal4 : MonoBehaviour
 
                 //this is the card that we dragged into the trigger
                 Destroy(triggeredObject);
-
+                toTest.Change();
                 trainOnBoard.SetActive(true);
                 bc.gameObject.SetActive(false);
                 //AddPoints

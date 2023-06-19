@@ -11,6 +11,7 @@ public class PassengerTrain4 : MonoBehaviour
     public PlayerInDetail playerInDetail;
     public PassengerSlot passengerSlot;
     public WildCardSlot wildCardSlot;
+    private JustToTest toTest;
 
     //GameObjects
     public GameObject trainOnBoard;
@@ -29,6 +30,7 @@ public class PassengerTrain4 : MonoBehaviour
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
+        toTest = FindObjectOfType<JustToTest>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -90,7 +92,7 @@ public class PassengerTrain4 : MonoBehaviour
 
                 //this is the card that we dragged into the trigger
                 Destroy(triggeredObject);
-
+                toTest.Change();
                 trainOnBoard.SetActive(true);
                 bc.gameObject.SetActive(false);
                 //AddPoints
