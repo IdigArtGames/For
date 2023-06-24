@@ -6,11 +6,10 @@ using UnityEngine;
 public class DeckManager : MonoBehaviour
 {
     public List<Card> deck = new List<Card>();
-    public List<Card> discardPile = new List<Card>();
     public Transform[] player1CardSlots;
     public Transform[] player2CardSlots;
     public bool[] isSlotAvailable;
-
+    public bool[] isSlotAvailable1;
 
     public GameObject player1Cards;
     public GameObject player2Cards;
@@ -36,8 +35,11 @@ public class DeckManager : MonoBehaviour
                     }
 
                 }
+            }
 
-                if (isSlotAvailable[i] == true && randCard.CompareTag(player2CardSlots[i].tag))
+            for (int i = 0; i < isSlotAvailable1.Length; i++)
+            {
+                if (isSlotAvailable1[i] == true && randCard.CompareTag(player2CardSlots[i].tag))
                 {
 
                     if (player2Cards.activeSelf)
@@ -45,7 +47,7 @@ public class DeckManager : MonoBehaviour
                         randCard.gameObject.SetActive(true);
                         randCard.transform.SetParent(player2CardSlots[i].transform);
                         randCard.transform.localPosition = Vector3.zero;
-                        isSlotAvailable[i] = true;
+                        isSlotAvailable1[i] = true;
                         deck.Remove(randCard);
                         deck.TrimExcess();
                         return;
@@ -56,35 +58,8 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    private void ReturnToDeck()
-    {
-        int numCardsToAdd = Mathf.Min(discardPile.Count, 110);
-        for (int i = 0; i < numCardsToAdd; i++)
-        {
-            Card card = discardPile[i];
-            if(card == null)
-            {
-                continue;
-            }
-                
-            deck.Add(card);
-        }
-
-        discardPile.RemoveRange(0, numCardsToAdd);
-        discardPile.TrimExcess();
-    }
-
-
-
-
-
     void Update()
     {
-        if(deck.Count == 0)
-        {
-            ReturnToDeck();
-            deck.TrimExcess();
-            discardPile.TrimExcess();
-        }
+       
     }
 }

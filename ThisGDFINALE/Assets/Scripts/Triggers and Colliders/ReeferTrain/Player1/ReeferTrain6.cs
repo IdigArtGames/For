@@ -26,6 +26,28 @@ public class ReeferTrain6 : MonoBehaviour
     private int SubtractTrainCars = 4;
     private int RequiredTrainCards = 3;
 
+    public void just()
+    {
+        int required = RequiredTrainCards - reeferSlot.amountOfBoxTrain;
+        int total = required;
+
+        int Total = required;
+        int count = 0;
+        for (int i = 0; i < wildCardSlot.transform.childCount; i++)
+        {
+            if (reeferSlot.amountOfBoxTrain <= RequiredTrainCards)
+            {
+                Destroy(wildCardSlot.transform.GetChild(i).gameObject);
+
+                count++;
+
+                if (count >= total)
+                    break;
+            }
+
+        }
+    }
+
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
@@ -56,12 +78,17 @@ public class ReeferTrain6 : MonoBehaviour
     {
         if (isTriggered && Input.GetMouseButtonUp(0))
         {
-            if (((triggeredObject.CompareTag("Reefer")) && reeferSlot.amountOfBoxTrain >= RequiredTrainCards || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
+            if (((triggeredObject.CompareTag("Reefer")) && reeferSlot.amountOfBoxTrain >= RequiredTrainCards || (triggeredObject.CompareTag("Reefer") && wildCardSlot.amountOfBoxTrain + reeferSlot.amountOfBoxTrain >= RequiredTrainCards) || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
             {
                 //we want to only destroy the BoxCards because it is what triggered the collision
-                if (triggeredObject.CompareTag("Reefer"))
+                if (triggeredObject.CompareTag("Reefer") || triggeredObject.CompareTag("Reefer") && wildCardSlot.amountOfBoxTrain + reeferSlot.amountOfBoxTrain >= RequiredTrainCards)
                 {
                     int count = 0;
+
+                    if (reeferSlot.amountOfBoxTrain < RequiredTrainCards)
+                    {
+                        just();
+                    }
 
                     for (int i = 0; i < reeferSlot.transform.childCount; i++)
                     {

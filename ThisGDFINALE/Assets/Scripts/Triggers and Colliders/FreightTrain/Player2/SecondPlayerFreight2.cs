@@ -26,6 +26,28 @@ public class SecondPlayerFreight2 : MonoBehaviour
     private int SubtractTrainCars = 6;
     private int RequiredTrainCards = 5;
 
+    public void just()
+    {
+        int required = RequiredTrainCards - freightSlot.amountOfBoxTrain;
+        int total = required;
+
+        int Total = required;
+        int count = 0;
+        for (int i = 0; i < wildCardSlot.transform.childCount; i++)
+        {
+            if (freightSlot.amountOfBoxTrain <= RequiredTrainCards)
+            {
+                Destroy(wildCardSlot.transform.GetChild(i).gameObject);
+
+                count++;
+
+                if (count >= total)
+                    break;
+            }
+
+        }
+    }
+
     private void Start()
     {
         toTest = FindObjectOfType<JustToTest>();
@@ -56,12 +78,17 @@ public class SecondPlayerFreight2 : MonoBehaviour
     {
         if (isTriggered && Input.GetMouseButtonUp(0))
         {
-            if (((triggeredObject.CompareTag("Freight")) && freightSlot.amountOfBoxTrain >= RequiredTrainCards || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
+            if (((triggeredObject.CompareTag("Freight")) && freightSlot.amountOfBoxTrain >= RequiredTrainCards || (triggeredObject.CompareTag("Freight") && wildCardSlot.amountOfBoxTrain + freightSlot.amountOfBoxTrain >= RequiredTrainCards) || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
             {
                 //we want to only destroy the BoxCards because it is what triggered the collision
-                if (triggeredObject.CompareTag("Freight"))
+                if (triggeredObject.CompareTag("Freight") || triggeredObject.CompareTag("Freight") && wildCardSlot.amountOfBoxTrain + freightSlot.amountOfBoxTrain >= RequiredTrainCards)
                 {
                     int count = 0;
+
+                    if (freightSlot.amountOfBoxTrain < RequiredTrainCards)
+                    {
+                        just();
+                    }
 
                     for (int i = 0; i < freightSlot.transform.childCount; i++)
                     {

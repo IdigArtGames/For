@@ -27,6 +27,28 @@ public class PassengerTrain4 : MonoBehaviour
     private int SubtractTrainCars =5;
     private int RequiredTrainCards = 4;
 
+    public void just()
+    {
+        int required = RequiredTrainCards - passengerSlot.amountOfBoxTrain;
+        int total = required;
+
+        int Total = required;
+        int count = 0;
+        for (int i = 0; i < wildCardSlot.transform.childCount; i++)
+        {
+            if (passengerSlot.amountOfBoxTrain <= RequiredTrainCards)
+            {
+                Destroy(wildCardSlot.transform.GetChild(i).gameObject);
+
+                count++;
+
+                if (count >= total)
+                    break;
+            }
+
+        }
+    }
+
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
@@ -57,12 +79,17 @@ public class PassengerTrain4 : MonoBehaviour
     {
         if (isTriggered && Input.GetMouseButtonUp(0))
         {
-            if (((triggeredObject.CompareTag("Passenger")) && passengerSlot.amountOfBoxTrain >= RequiredTrainCards || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
+            if (((triggeredObject.CompareTag("Passenger")) && passengerSlot.amountOfBoxTrain >= RequiredTrainCards || (triggeredObject.CompareTag("Passenger") && wildCardSlot.amountOfBoxTrain + passengerSlot.amountOfBoxTrain >= RequiredTrainCards) || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
             {
                 //we want to only destroy the BoxCards because it is what triggered the collision
-                if (triggeredObject.CompareTag("Passenger"))
+                if (triggeredObject.CompareTag("Passenger") || triggeredObject.CompareTag("Passenger") && wildCardSlot.amountOfBoxTrain + passengerSlot.amountOfBoxTrain >= RequiredTrainCards)
                 {
                     int count = 0;
+
+                    if (passengerSlot.amountOfBoxTrain < RequiredTrainCards)
+                    {
+                        just();
+                    }
 
                     for (int i = 0; i < passengerSlot.transform.childCount; i++)
                     {

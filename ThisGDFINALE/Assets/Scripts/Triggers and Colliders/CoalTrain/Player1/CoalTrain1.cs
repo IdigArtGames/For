@@ -26,6 +26,28 @@ public class CoalTrain1 : MonoBehaviour
     private int SubtractTrainCars = 4;
     private int RequiredTrainCards = 3;
 
+    public void just()
+    {
+        int required = RequiredTrainCards - coalSlot.amountOfBoxTrain;
+        int total = required;
+
+        int Total = required;
+        int count = 0;
+        for (int i = 0; i < wildCardSlot.transform.childCount; i++)
+        {
+            if (coalSlot.amountOfBoxTrain <= RequiredTrainCards)
+            {
+                Destroy(wildCardSlot.transform.GetChild(i).gameObject);
+
+                count++;
+
+                if (count >= total)
+                    break;
+            }
+
+        }
+    }
+
     private void Start()
     {
         toTest = FindObjectOfType<JustToTest>();
@@ -56,12 +78,17 @@ public class CoalTrain1 : MonoBehaviour
     {
         if (isTriggered && Input.GetMouseButtonUp(0) && tankerTrain3.bc.isActiveAndEnabled)
         {
-            if (((triggeredObject.CompareTag("Coal")) && coalSlot.amountOfBoxTrain >= RequiredTrainCards || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
+            if (((triggeredObject.CompareTag("Coal")) && coalSlot.amountOfBoxTrain >= RequiredTrainCards || (triggeredObject.CompareTag("Coal") && wildCardSlot.amountOfBoxTrain + coalSlot.amountOfBoxTrain >= RequiredTrainCards) || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
             {
                 //we want to only destroy the BoxCards because it is what triggered the collision
-                if (triggeredObject.CompareTag("Coal"))
+                if (triggeredObject.CompareTag("Coal") || triggeredObject.CompareTag("Coal") && wildCardSlot.amountOfBoxTrain + coalSlot.amountOfBoxTrain >= RequiredTrainCards)
                 {
                     int count = 0;
+
+                    if (coalSlot.amountOfBoxTrain < RequiredTrainCards)
+                    {
+                        just();
+                    }
 
                     for (int i = 0; i < coalSlot.transform.childCount; i++)
                     {

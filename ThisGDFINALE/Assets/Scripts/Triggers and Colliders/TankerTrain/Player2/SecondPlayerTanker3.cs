@@ -27,6 +27,28 @@ public class SecondPlayerTanker3 : MonoBehaviour
     private int SubtractTrainCars = 4;
     private int RequiredTrainCards = 3;
 
+    public void just()
+    {
+        int required = RequiredTrainCards - tankerSlot.amountOfBoxTrain;
+        int total = required;
+
+        int Total = required;
+        int count = 0;
+        for (int i = 0; i < wildCardSlot.transform.childCount; i++)
+        {
+            if (tankerSlot.amountOfBoxTrain <= RequiredTrainCards)
+            {
+                Destroy(wildCardSlot.transform.GetChild(i).gameObject);
+
+                count++;
+
+                if (count >= total)
+                    break;
+            }
+
+        }
+    }
+
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
@@ -57,12 +79,17 @@ public class SecondPlayerTanker3 : MonoBehaviour
     {
         if (isTriggered && Input.GetMouseButtonUp(0) && coalTrain1.bc.isActiveAndEnabled)
         {
-            if (((triggeredObject.CompareTag("Tanker")) && tankerSlot.amountOfBoxTrain >= RequiredTrainCards || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
+            if (((triggeredObject.CompareTag("Tanker")) && tankerSlot.amountOfBoxTrain >= RequiredTrainCards || (triggeredObject.CompareTag("Tanker") && wildCardSlot.amountOfBoxTrain + tankerSlot.amountOfBoxTrain >= RequiredTrainCards) || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
             {
                 //we want to only destroy the BoxCards because it is what triggered the collision
-                if (triggeredObject.CompareTag("Tanker"))
+                if (triggeredObject.CompareTag("Tanker") || triggeredObject.CompareTag("Tanker") && wildCardSlot.amountOfBoxTrain + tankerSlot.amountOfBoxTrain >= RequiredTrainCards)
                 {
                     int count = 0;
+
+                    if (tankerSlot.amountOfBoxTrain < RequiredTrainCards)
+                    {
+                        just();
+                    }
 
                     for (int i = 0; i < tankerSlot.transform.childCount; i++)
                     {

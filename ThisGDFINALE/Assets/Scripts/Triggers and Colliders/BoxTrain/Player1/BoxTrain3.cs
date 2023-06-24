@@ -26,6 +26,28 @@ public class BoxTrain3 : MonoBehaviour
     private int SubtractTrainCars = 5;
     private int RequiredTrainCards = 4;
 
+    public void just()
+    {
+        int required = RequiredTrainCards - boxSlot.amountOfBoxTrain;
+        int total = required;
+
+        int Total = required;
+        int count = 0;
+        for (int i = 0; i < wildCardSlot.transform.childCount; i++)
+        {
+            if (boxSlot.amountOfBoxTrain <= RequiredTrainCards)
+            {
+                Destroy(wildCardSlot.transform.GetChild(i).gameObject);
+
+                count++;
+
+                if (count >= total)
+                    break;
+            }
+
+        }
+    }
+
     private void Start()
     {
         toTest = FindObjectOfType<JustToTest>();
@@ -56,12 +78,17 @@ public class BoxTrain3 : MonoBehaviour
     {
         if (isTriggered && Input.GetMouseButtonUp(0))
         {
-            if (((triggeredObject.CompareTag("Box")) && boxSlot.amountOfBoxTrain >= RequiredTrainCards || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
+            if (((triggeredObject.CompareTag("Box")) && boxSlot.amountOfBoxTrain >= RequiredTrainCards || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards) || triggeredObject.CompareTag("Box") && wildCardSlot.amountOfBoxTrain + boxSlot.amountOfBoxTrain >= RequiredTrainCards))
             {
                 //we want to only destroy the BoxCards because it is what triggered the collision
-                if (triggeredObject.CompareTag("Box"))
+                if (triggeredObject.CompareTag("Box") || triggeredObject.CompareTag("Box") && wildCardSlot.amountOfBoxTrain + boxSlot.amountOfBoxTrain >= RequiredTrainCards)
                 {
                     int count = 0;
+
+                    if (boxSlot.amountOfBoxTrain < RequiredTrainCards)
+                    {
+                        just();
+                    }
 
                     for (int i = 0; i < boxSlot.transform.childCount; i++)
                     {

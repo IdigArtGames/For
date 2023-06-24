@@ -27,6 +27,28 @@ public class HopperTrain1 : MonoBehaviour
     private int SubtractTrainCars = 3;
     private int RequiredTrainCards = 2;
 
+    public void just()
+    {
+        int required = RequiredTrainCards - hopperSlot.amountOfBoxTrain;
+        int total = required;
+
+        int Total = required;
+        int count = 0;
+        for (int i = 0; i < wildCardSlot.transform.childCount; i++)
+        {
+            if (hopperSlot.amountOfBoxTrain <= RequiredTrainCards)
+            {
+                Destroy(wildCardSlot.transform.GetChild(i).gameObject);
+
+                count++;
+
+                if (count >= total)
+                    break;
+            }
+
+        }
+    }
+
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
@@ -57,12 +79,17 @@ public class HopperTrain1 : MonoBehaviour
     {
         if (isTriggered && Input.GetMouseButtonUp(0) && boxTrain1.bc.isActiveAndEnabled)
         {
-            if (((triggeredObject.CompareTag("Hopper")) && hopperSlot.amountOfBoxTrain >= RequiredTrainCards || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
+            if (((triggeredObject.CompareTag("Hopper")) && hopperSlot.amountOfBoxTrain >= RequiredTrainCards || (triggeredObject.CompareTag("Hopper") && wildCardSlot.amountOfBoxTrain + hopperSlot.amountOfBoxTrain >= RequiredTrainCards) || ((triggeredObject.CompareTag("WildCard")) && wildCardSlot.amountOfBoxTrain >= RequiredTrainCards)))
             {
                 //we want to only destroy the BoxCards because it is what triggered the collision
-                if (triggeredObject.CompareTag("Hopper"))
+                if (triggeredObject.CompareTag("Hopper") || triggeredObject.CompareTag("Hopper") && wildCardSlot.amountOfBoxTrain + hopperSlot.amountOfBoxTrain >= RequiredTrainCards)
                 {
                     int count = 0;
+
+                    if (hopperSlot.amountOfBoxTrain < RequiredTrainCards)
+                    {
+                        just();
+                    }
 
                     for (int i = 0; i < hopperSlot.transform.childCount; i++)
                     {
