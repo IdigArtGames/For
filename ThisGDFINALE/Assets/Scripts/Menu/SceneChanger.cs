@@ -23,6 +23,24 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
+    public void ToMembers()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+    }
+
+    public void menu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -3 );
+    }
+
+    public void ImportantInfo()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
+    }
+    public void toMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+    }
 
     public void OnApplicationQuit()
     {

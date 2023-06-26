@@ -16,6 +16,5 @@ MonoBehaviour:
   TrainCardIcon: {fileID: 21300000, guid: a0b43d7492201e246a7c13314eb74e14, type: 3}
   TrainCarIcon: {fileID: 21300000, guid: 4d48183bbacf28e4dbc2de5e76c6329d, type: 3}
   ScoreIcon: {fileID: 21300000, guid: 75eccde38c22838418f4f8902c0bf2b0, type: 3}
-  PlayerTrainCards: 0
-  PlayerTrainCars: 45
+  PlayerTrainCars: 22
   PlayerScore: 0

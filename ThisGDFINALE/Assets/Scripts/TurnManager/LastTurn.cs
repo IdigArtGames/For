@@ -10,6 +10,9 @@ public class LastTurn : MonoBehaviour
 
     public GameObject oneLastPlay;
 
+    public GameObject empty;
+
+
     //flags to check if the if statement inside the update method has executed the code in it, if that is true, it then makes sure the update method will never execute the code again.
     bool activateOnce;
     void Start()
@@ -32,7 +35,8 @@ public class LastTurn : MonoBehaviour
 
     public void DisableMessage()
     {
-        oneLastPlay.SetActive(false);
+        Destroy(oneLastPlay.gameObject);
+        empty.gameObject.SetActive(true);
     }
 
     IEnumerator waitBeforeShowing()

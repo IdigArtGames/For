@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rules.unity
     guid: c2afff96fd7a5e04097b96a3c81949b3
+  - enabled: 1
+    path: Assets/Scenes/GroupMembers.unity
+    guid: 9e228b918bcbf574da826013b80ccd10
+  - enabled: 1
+    path: Assets/Scenes/Information.unity
+    guid: 8cc422eec73946142be9488e734d8ec1
   m_configObjects: {}

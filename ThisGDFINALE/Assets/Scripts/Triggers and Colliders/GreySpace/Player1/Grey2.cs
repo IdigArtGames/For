@@ -23,6 +23,7 @@ public class Grey2 : MonoBehaviour
     public GameObject theTrigger;
     private GameObject triggeredObject;
 
+
     //bool
     private bool isTriggered = false;
 
