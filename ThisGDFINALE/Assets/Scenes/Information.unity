@@ -181,32 +181,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "How you will play this game:\n\r\n1. Each city has three linked cities.
-    For example, Miami is linked to Charleston, Atlanta, and New Orleans.\r\n\r\n2.
-    To connect two cities, players need to claim routes between them using train
-    cars.\r\n\r\n3. When a player wants to connect two cities, they must start from
-    one city and continue building their train cars along the connected routes until
-    they reach the destination city.\r\n\r\n4. For example, if a player starts in
-    Boston and wants to connect to Miami, they must place their train cars along
-    the routes from Boston to New York and from New York to Miami, as well as any
-    routes connected to Miami (i.e., Charleston, Atlanta, or New Orleans).\r\n\r\nBy
-    following this rule, players will have a continuous path of train cars connecting
-    the two cities.\r\n\r\n\nWelcome to the game! To connect two cities, you must
-    build a continuous path of train cars starting from your origin city and going
-    through the connected routes until you reach the destination city.\r\n\r\nFor
-    example, if you want to connect Boston to Miami, you must place your train cars
-    along the routes from Boston to New York and from New York to Miami. Additionally,
-    make sure to include any routes connected to Miami, such as Charleston, Atlanta,
-    or New Orleans.\r\n\r\nRemember, your path must be continuous, without skipping
-    any intermediate cities. Good luck connecting the cities!\r\n\nDestination Cards:\n\r\nPlease
-    choose your destination cards carefully at the beginning of the game. If you
-    want to start with two destination cards, make sure to select only two. Once
-    you have taken three destination cards, you won't be able to undo that action
-    and reduce the number to two. So, it's important to choose carefully from the
-    start.\r\n\r\nDuring your last turn, remember to click on the destination cards
-    to add the points to your score. However, avoid clicking on them during the midgame.
-    This ensures that your points are correctly accounted for. Simplify your actions
-    and avoid any confusion.\n\n\rWe hope you understand."
+  m_text: "How you will play this game:\n\r\n*Player1 will start and will draw their
+    desired destination cards, then will draw 4 starting cards and their turn would
+    be over. player2 will follow these steps as well. Once all that is taken care
+    of, then the game can continue and players will take their turns accordingly.\n\n1.
+    Each city has three linked cities. For example, Miami is linked to Charleston,
+    Atlanta, and New Orleans.\r\n\r\n2. To connect two cities, players need to claim
+    routes between them using train cars.\r\n\r\n3. When a player wants to connect
+    two cities, they must start from one city and continue building their train cars
+    along the connected routes until they reach the destination city.\r\n\r\n4. For
+    example, if a player starts in Boston and wants to connect to Miami, they must
+    place their train cars along the routes from Boston to New York and from New
+    York to Miami, as well as any routes connected to Miami (i.e., Charleston, Atlanta,
+    or New Orleans).\r\n\r\nBy following this rule, players will have a continuous
+    path of train cars connecting the two cities.\r\n\r\n\nWelcome to the game! To
+    connect two cities, you must build a continuous path of train cars starting from
+    your origin city and going through the connected routes until you reach the destination
+    city.\r\n\r\nFor example, if you want to connect Boston to Miami, you must place
+    your train cars along the routes from Boston to New York and from New York to
+    Miami. Additionally, make sure to include any routes connected to Miami, such
+    as Charleston, Atlanta, or New Orleans.\r\n\r\nRemember, your path must be continuous,
+    without skipping any intermediate cities. Good luck connecting the cities!\r\n\nDestination
+    Cards:\n\r\nPlease choose your destination cards carefully at the beginning of
+    the game. If you want to start with two destination cards, make sure to select
+    only two. Once you have taken three destination cards, you won't be able to undo
+    that action and reduce the number to two. So, it's important to choose carefully
+    from the start.\r\n\r\nDuring your last turn, remember to click on the destination
+    cards to add the points to your score. However, avoid clicking on them during
+    the midgame. This ensures that your points are correctly accounted for. Simplify
+    your actions and avoid any confusion.\n\n\rWe hope you understand."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

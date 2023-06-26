@@ -16,7 +16,7 @@ public class JustToTest : MonoBehaviour
 
     public Animator textAnim;
 
-    private float AfterThis = 0;
+    private float AfterThis = 5;
 
     public int callCount;
 

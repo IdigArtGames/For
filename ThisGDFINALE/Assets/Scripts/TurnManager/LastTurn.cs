@@ -41,7 +41,7 @@ public class LastTurn : MonoBehaviour
 
     IEnumerator waitBeforeShowing()
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(5);
         oneLastPlay.gameObject.SetActive(true);
     }
 }
